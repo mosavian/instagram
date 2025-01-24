@@ -50,9 +50,7 @@ class HomeScreen extends StatelessWidget {
                             minChildSize: 0.2,
                             maxChildSize: 0.7,
                             builder: (context, controler) {
-                              return ShareBottomsheet(
-                                controller: controler,
-                              );
+                              return ShareBottomsheet(controller: controler);
                             },
                           ),
                         );
