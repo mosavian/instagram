@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/screens/activity_screen.dart';
+import 'package:instagram/screens/add_content_screen.dart';
 import 'package:instagram/screens/home_screen.dart';
 import 'package:instagram/screens/login_screen.dart';
 import 'package:instagram/screens/search_screen.dart';
 import 'package:instagram/screens/switch_account_screen.dart';
+import 'package:instagram/screens/user_profile_screen.dart';
 
 void main() {
   runApp(const Application());
@@ -34,7 +37,7 @@ class Application extends StatelessWidget {
                 ),
               ),
             )),
-        home: SearchScreen());
+        home: UserProfileScreen());
   }
 }
 

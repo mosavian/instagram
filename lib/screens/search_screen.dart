@@ -7,27 +7,82 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1c1f2e),
-      body: SafeArea(
-          child: GridView.custom(
+        backgroundColor: Color(0xff1c1f2e),
+        body: SafeArea(
+            child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(child: _getColmn()),
+            SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 17),
+              sliver: SliverGrid(
+                delegate: SliverChildBuilderDelegate((context, index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      child: FittedBox(
+                        fit: BoxFit.cover,
+                        child: Image.asset(
+                          'images/item$index.png',
+                        ),
+                      ),
+                    ),
+                  );
+                }, childCount: 10),
+                gridDelegate: SliverQuiltedGridDelegate(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    repeatPattern: QuiltedGridRepeatPattern.inverted,
+                    pattern: [
+                      QuiltedGridTile(2, 1),
+                      QuiltedGridTile(2, 2),
+                      QuiltedGridTile(1, 1),
+                      QuiltedGridTile(1, 1),
+                      QuiltedGridTile(1, 1),
+                    ]),
+              ),
+            )
+          ],
+        )));
+  }
+
+/*
+GridView.custom(
               gridDelegate: SliverQuiltedGridDelegate(
                   crossAxisCount: 3,
-                  mainAxisSpacing: 4,
-                  crossAxisSpacing: 4,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  repeatPattern: QuiltedGridRepeatPattern.inverted,
                   pattern: [
+                    QuiltedGridTile(2, 1),
                     QuiltedGridTile(2, 2),
                     QuiltedGridTile(1, 1),
-                    QuiltedGridTile(2, 1),
-                    QuiltedGridTile(1, 2),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(1, 1),
                   ]),
               childrenDelegate: SliverChildBuilderDelegate((context, index) {
                 return Container(
-                  color: Colors.red,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      child: Image.asset(
+                        'images/item$index.png',
+                      ),
+                    ),
+                  ),
                 );
-              }, childCount: 12))),
+              }, childCount: 10))),
     );
-  }
-
+*/
   Widget _getColmn() {
     return Column(
       children: [
@@ -63,9 +118,6 @@ class SearchScreen extends StatelessWidget {
           ),
         ),
         _getStoryList(),
-        SizedBox(
-          height: 100,
-        ),
       ],
     );
   }
