@@ -56,7 +56,10 @@ class HomeScreen extends StatelessWidget {
                         );
                       });
                 },
-                child: Text('ss')),
+                child: Text(
+                  'Open Bottom Sheet',
+                  style: TextStyle(color: Colors.white),
+                )),
           ),
           SliverToBoxAdapter(child: _getStoryList()),
           SliverList(

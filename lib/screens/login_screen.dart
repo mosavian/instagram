@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _LoginScreenState extends State<LoginScreen> {
   FocusNode focusTextfield1 = FocusNode();
   FocusNode focusTextfield2 = FocusNode();
   @override
